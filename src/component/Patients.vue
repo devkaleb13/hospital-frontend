@@ -47,7 +47,7 @@ const showAddDialog= ref(false)
 </script>
 
 <template>
-    <v-container>
+    <v-container class="mt-6">
         <v-row>
             <v-col> md="10">
                 <h1>patients</h1>
@@ -60,7 +60,7 @@ const showAddDialog= ref(false)
 
         <v-row>
             <v-col>
-                <v-table class="border">
+                <v-table class="border" striped="even">
                     <thead>
                         <tr>
                         <th>Name</th>
@@ -81,7 +81,7 @@ const showAddDialog= ref(false)
                             <td>{{ item.nationalId }}</td>
                             <td>{{ item.dob }}</td>
                             <td>
-                                <v-btn color="primary" size="small">
+                                <v-btn color="primary" size="small" to="/viewpatient">
                                  <v-icon icon="mdi-eye"></v-icon>
                                 View
                                 </v-btn>
@@ -93,20 +93,21 @@ const showAddDialog= ref(false)
         </v-row>
     </v-container>
 <!-- add patients-->
-    <v-dialog v-model="showAddDialog" max-width="600px">
+    <v-dialog v-model="showAddDialog" max-width="50%">
         <v-form>
-            <v-card>
+            <v-card class="pa-4">
                 <v-row>
                     <v-card-text>Add Patients</v-card-text>
                 <v-spacer></v-spacer>
-                    <v-btn class="ma-2" color="primary" icon="mdi-close" @click="showAddDialog= false"></v-btn>
+                    <v-btn class="ma-2" color="secondary" icon="mdi-close" @click="showAddDialog= false"></v-btn>
                 </v-row>
+                <v-divider class="mb-4" color="primary" opacity=".7" thickness="3" gradient></v-divider>
                 <v-row>
                     <v-col md="6">
-                        <v-text-field label="First Name"></v-text-field>
+                        <v-text-field prepend-icon="mdi- account-outlined"></v-text-field>
                     </v-col>
                     <v-col md="6">
-                        <v-text-field label="phone" outlined></v-text-field>
+                        <v-text-field label="phone" prepend-icon="mdi-account-outline"></v-text-field>
                     </v-col>
                 </v-row>
                  <v-row>
@@ -114,7 +115,7 @@ const showAddDialog= ref(false)
                         <v-text-field label="email"></v-text-field>
                     </v-col>
                     <v-col md="6">
-                        <v-text-field label="residence" outlined></v-text-field>
+                        <v-text-field label="residence" variant="outline"></v-text-field>
                     </v-col>
                 </v-row>
                  <v-row>
@@ -122,7 +123,19 @@ const showAddDialog= ref(false)
                         <v-text-field label="nationalId"></v-text-field>
                     </v-col>
                     <v-col md="6">
-                        <v-text-field label="dob" outlined></v-text-field>
+                        <v-date-input label="Date of birth" variant="outlined"></v-date-input>
+                        <v-divider class="mb-4" color="primary" opacity=".7" thickness="3" gradient></v-divider>
+                        <v-row>
+                            <v-col>
+                                <v-card-actions>
+                                    <v-btn color="primary" variant="outlined"><v-icon icon="mdi-close"></v-icon> </v-btn>
+                                    <v-spacer/>
+                                    <v-btn color="primary" variant="outlined"></v-btn>
+                                    <v-icon icon="mdi-content-save-outline"></v-icon>
+    
+                                </v-card-actions>
+                            </v-col>
+                        </v-row>
                     </v-col>
                 </v-row>
             </v-card>
