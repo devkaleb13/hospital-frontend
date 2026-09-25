@@ -3,7 +3,7 @@ import Landingpage from '@/component/LandingPage.vue'
 import Login from '@/component/Login.vue'
 import Patients from '@/component/Patients.vue'
 import Profile from '@/component/Profile.vue'
-import Signup from '@/component/Signup.vue'
+import Signup from '@/component/SignUp.vue'
 import ViewPatient from '@/component/ViewPatient.vue'
 
 
@@ -27,7 +27,7 @@ const router = createRouter({
       component: Profile
     },
     {
-      path:'/Signup',
+      path:'/signup',
       component: Signup
     },
   
